@@ -1,0 +1,22 @@
+-- 
+-- Very simple omniFocus script to toggle the "View" Filter between all and available.
+--
+-- Author: Chris Bogdon
+--
+tell application "OmniFocus"
+	
+	set theDoc to document window 1 of document 1
+	
+	-- Store the Current Task State	
+	set currentTaskState to selected task state filter identifier of the content of theDoc
+	
+	if currentTaskState is equal to "all" then
+		set newTaskState to "available"
+	else
+		set newTaskState to "all"
+	end if
+	
+	set selected task state filter identifier of the content of theDoc to newTaskState
+	
+	
+end tell
